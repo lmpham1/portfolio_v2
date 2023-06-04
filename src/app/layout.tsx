@@ -1,5 +1,10 @@
+import Navbar from '@/components/NavBar'
 import './globals.css'
 import { Inter } from 'next/font/google'
+import githubIcon from "../../public/github-mark.svg"
+import twitterIcon from "../../public/icons8-twitter-circled.svg"
+import facebookIcon from "../../public/icons8-facebook.svg"
+import Image from 'next/image'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -15,7 +20,25 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <Navbar/>
+        <div className="absolute top-0 left-6 bottom-0">
+          <div className="h-3/5 w-0.5 bg-gray-800 transform translate-x-3.5"></div>
+          <div className="flex flex-col">
+            <a href="#" className="hover:text-gray-600 my-4">
+              <Image width="29" src={githubIcon} alt="GitHub Icon"/>
+            </a>
+            <a href="#" className="mb-4 hover:text-gray-600">
+              <Image width="30" src={twitterIcon} alt="Twitter Icon"/>
+            </a>
+            <a href="#" className="mb-4 hover:text-gray-600">
+              <Image width="30" src={facebookIcon} alt="Twitter Icon"/>
+            </a>
+          </div>
+          <div className="h-1/5 w-0.5 bg-gray-800 transform translate-x-3.5"></div>
+        </div>
+        {children}
+        </body>
     </html>
   )
 }
